@@ -1,3 +1,9 @@
+---
+title: Guava
+date: 2024-07-12 13:16:38
+tags:
+---
+
 # Objects
 
 ## equal
@@ -363,9 +369,66 @@ if (integerOptional.isPresent()) {
 // 2
 ```
 
+# Collections
+
+- binarySearch
+
+```java
+for (int i = 0; i < 10; i++) {
+    num.add(i);
+}
+int index = Collections.binarySearch(num, 2);
+LOGGER.info("index: {}", index);
+```
 
 
 
+- sort 排序，可以结合Ordering使用
+- shuffle 随机打乱
 
+# Maps
 
+- newHashMapWithExceptedSize
+- fromProperties：从properties文件读取生成一个map
 
+# Multimap
+
+可以实现1 -> n关系的构造
+
+# ImmutableXXX
+
+- 保证返回容器不被调用者修改，并且原容器的修改不会影响返回容器
+- 返回的对象不是原容器的视图，而是原容器的复制
+
+```java
+List<String> list = Lists.newArrayList(Arrays.asList("a", "b", "c"));
+
+ImmutableList<String> immutableList = ImmutableList.copyOf(list);
+LOGGER.info("immutableList: {}", immutableList);
+
+list.add("e");
+
+LOGGER.info("immutableList: {}", immutableList);
+```
+
+# BiMap
+
+- 让key和value可以互相查询，根据value查询key`BiMap.inverse().get`
+- key和value都要是唯一的
+
+# RangeSet/RangeMap
+
+- RangeSet用于存放区间的容器，提供区间合并，区间分裂等功能
+- RangeMap，提高Range -> Value的映射，不提供区间合并
+
+# AtomicLongMap 
+
+- 对map里的value进行原子的更新
+- 在监控系统里面使用
+- addAndGet/getAndAdd
+
+# I/O
+
+## Source and sinks
+
+按照输入/输出，字节/字符分为了四个类
