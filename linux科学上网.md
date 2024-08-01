@@ -1,5 +1,5 @@
 ---
-title: linux翻墙
+title: linux科学上网
 date: 2024-07-16 11:25:03
 tags:
 ---
