@@ -73,11 +73,23 @@ tags:
 
 # rebase
 
-看不懂
+rebase是找出两个分支的最近共同祖先，从一个分支提取修改，在另一个分支上进行merge
 
 # cherry-pick
 
 选择若干个特定的提交，将它们应用到当前分支上
 
 # 创建一个空白新分支
+
+# log
+
+`git log`查看
+
+按q退出
+
+# 查看当前分支的文件
+
+```
+git ls-tree -r HEAD --name-only
+```
 
