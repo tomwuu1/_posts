@@ -75,6 +75,26 @@ public class Person {
 2. Pattern：避免频繁编译正则表达式，缓存Pattern实例
 3. 包装类：优先使用基本类型而不是包装类，避免无意识的自动装箱
 
+# 9：用`try-with-resources`
+
+需要类实现`AutoCloseable`接口
+
+```java
+try (BufferedReader reader = new BufferedReader(new FileReader("example.txt"))) ;
+BufferedReader reader = new BufferedReader(new FileReader("example.txt")))
+{
+    String line;
+    while ((line = reader.readLine()) != null) {
+        System.out.println(line);
+    }
+} catch (IOException e) {
+    e.printStackTrace();
+}
+```
+
+1. 简化资源管理，不需要手动关闭资源
+2. 使用`try-catch`会吞异常
+
 
 
 # 适配器
